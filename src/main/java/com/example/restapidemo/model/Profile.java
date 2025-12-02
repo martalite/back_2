@@ -5,18 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Modelo de datos para un Usuario
- * Representa la información básica de un usuario
+ * Modelo de datos para un Perfil
+ * Representa la información básica de un perfil para un Usuario
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Profile {
 
     private Long id;
     private String nombre;
-    private String email;
-    private int edad;
-    private int idPerfil;
-
+    private String descripcion;
+    private String emailDeContacto;
+    private int idUsuario;
 }

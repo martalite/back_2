@@ -29,9 +29,9 @@ public class UserController {
 
     // Constructor que inicializa algunos usuarios de ejemplo
     public UserController() {
-        users.add(new User(nextId++, "Juan Pérez", "juan@example.com", 30));
-        users.add(new User(nextId++, "María García", "maria@example.com", 25));
-        users.add(new User(nextId++, "Carlos López", "carlos@example.com", 35));
+        users.add(new User(nextId++, "Juan Pérez", "juan@example.com", 30, 1));
+        users.add(new User(nextId++, "María García", "maria@example.com", 25, 2));
+        users.add(new User(nextId++, "Carlos López", "carlos@example.com", 35, 3));
     }
 
     /**
