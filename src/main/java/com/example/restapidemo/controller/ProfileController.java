@@ -137,10 +137,11 @@ public class ProfileController {
         if (existingProfile.isPresent()) {
             Profile Profile = existingProfile.get();
             Profile.setNombre(updatedProfile.getNombre());
-            if (updatedProfile.getEmail() != null) {
-                Profile.setEmail(updatedProfile.getEmail());
+            Profile.setDescripcion(updatedProfile.getNombre());
+            if (updatedProfile.getEmailDeContacto() != null) {
+                Profile.setEmailDeContacto(updatedProfile.getEmailDeContacto());
             }
-            Profile.setEdad(updatedProfile.getEdad());
+            Profile.setIdUsuario(updatedProfile.getIdUsuario());
             return ResponseEntity.ok(Profile);
         }
 

@@ -17,6 +17,5 @@ public class User {
     private String nombre;
     private String email;
     private int edad;
-    private int idPerfil;
 
 }
