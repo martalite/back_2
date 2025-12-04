@@ -18,4 +18,10 @@ public class User {
     private String email;
     private int edad;
 
+    private String creacion;
+    private String ultimoLogin;
+    private int nivelDePermiso;
+    private int puntuacion;
+    private String descripcion;
+
 }
