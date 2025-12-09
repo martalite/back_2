@@ -20,6 +20,7 @@ public class User {
 
     private String creacion;
     private String ultimoLogin;
+    private String rol;
     private int nivelDePermiso;
     private int puntuacion;
     private String descripcion;

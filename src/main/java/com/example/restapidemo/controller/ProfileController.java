@@ -137,7 +137,7 @@ public class ProfileController {
         if (existingProfile.isPresent()) {
             Profile Profile = existingProfile.get();
             Profile.setNombre(updatedProfile.getNombre());
-            Profile.setDescripcion(updatedProfile.getNombre());
+            Profile.setDescripcion(updatedProfile.getDescripcion());
             if (updatedProfile.getEmailDeContacto() != null) {
                 Profile.setEmailDeContacto(updatedProfile.getEmailDeContacto());
             }

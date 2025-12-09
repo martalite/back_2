@@ -29,12 +29,12 @@ public class UserController {
 
     // Constructor que inicializa algunos usuarios de ejemplo
     public UserController() {
-        users.add(new User(nextId++, "Juan Pérez", "juan@example.com", 30, "01/12/2025", "04/12/2025", 3, 10, "Juan."));
-        users.add(new User(nextId++, "María García", "maria@example.com", 25, "02/12/2025", "04/12/2025", 3, 7, "María."));
-        users.add(new User(nextId++, "Carlos López", "carlos@example.com", 35, "01/12/2025", "03/12/2025", 3, 8, "Carlos."));
-        users.add(new User(nextId++, "Pepito Pérez", "pepito@example.com", 36, "03/12/2025", "04/12/2025", 3, 10, "Pepito."));
-        users.add(new User(nextId++, "Carla García", "carla@example.com", 25, "01/12/2025", "04/12/2025", 3, 6, "Carla."));
-        users.add(new User(nextId++, "José López", "jose@example.com", 28, "04/12/2025", "04/12/2025", 3, 9, "José."));
+        users.add(new User(nextId++, "Juan Pérez", "juan@example.com", 30, "01/12/2025", "04/12/2025", "Admin", 3, 10, "Juan."));
+        users.add(new User(nextId++, "María García", "maria@example.com", 25, "02/12/2025", "04/12/2025", "Usuario",3, 7, "María."));
+        users.add(new User(nextId++, "Carlos López", "carlos@example.com", 35, "01/12/2025", "03/12/2025", "Usuario",3, 8, "Carlos."));
+        users.add(new User(nextId++, "Pepito Pérez", "pepito@example.com", 36, "03/12/2025", "04/12/2025", "Admin",3, 10, "Pepito."));
+        users.add(new User(nextId++, "Carla García", "carla@example.com", 25, "01/12/2025", "04/12/2025", "Solo lectura",3, 6, "Carla."));
+        users.add(new User(nextId++, "José López", "jose@example.com", 28, "04/12/2025", "04/12/2025", "Admin",3, 9, "José."));
     }
 
     /**
@@ -146,6 +146,7 @@ public class UserController {
             user.setEdad(updatedUser.getEdad());
             user.setCreacion(updatedUser.getCreacion());
             user.setUltimoLogin(updatedUser.getUltimoLogin());
+            user.setRol(updatedUser.getRol());
             user.setNivelDePermiso(updatedUser.getNivelDePermiso());
             user.setPuntuacion(updatedUser.getPuntuacion());
             user.setDescripcion(updatedUser.getDescripcion());
