@@ -80,7 +80,7 @@ public class UserCenterController {
 
     /**
      * GET - Buscar centros assignados a un usuario
-     * Ejemplo: GET http://localhost:8080/api/usersCenters/search?nombre=Juan
+     * Ejemplo: GET http://localhost:8080/api/usersCenters/search?idUsuario=1
      */
     @GetMapping("/search")
     @Operation(summary = "Buscar centros assignados a un usuario", description = "Busca todos los centros de un usuario por id de usuario")
@@ -100,17 +100,17 @@ public class UserCenterController {
     }
 
     /**
-     * POST - Crear un nuevo centro
+     * POST - Crear un nuevo UsuarioCentro
      * Ejemplo: POST http://localhost:8080/api/usersCenters
-     * Body: { "nombre": "Ana Torres", "email": "ana@example.com", "edad": 28 }
+     * Body: { "idUsuario": 1, "idCentro": 2}
      */
     @PostMapping
-    @Operation(summary = "Crear un nuevo centro", description = "Crea un nuevo centro en el sistema. El ID se asigna automáticamente.")
+    @Operation(summary = "Crear un nuevo usuario centro", description = "Crea un nuevo usuario centro en el sistema.")
     @ApiResponses({
-            @ApiResponse(responseCode = "201", description = "Centro creado exitosamente"),
-            @ApiResponse(responseCode = "400", description = "Datos de centro inválidos")
+            @ApiResponse(responseCode = "201", description = "Usuario centro creado exitosamente"),
+            @ApiResponse(responseCode = "400", description = "Datos de usuario centro inválidos")
     })
-    public ResponseEntity<UserCenter> createCenter(@RequestBody UserCenter userCenter) {
+    public ResponseEntity<UserCenter> createUserCenter(@RequestBody UserCenter userCenter) {
         usersCenters.add(userCenter);
         return ResponseEntity.status(HttpStatus.CREATED).body(userCenter);
     }
@@ -167,5 +167,27 @@ public class UserCenterController {
         }
 
         return ResponseEntity.notFound().build();
+    }
+
+    /**
+     * DELETE - Eliminar todos los centros de un usuario
+     * Ejemplo: DELETE http://localhost:8080/api/usersCenters/1
+     */
+    @DeleteMapping("/{idUsuario}")
+    @Operation(summary = "Eliminar todos los centros", description = "Eliminar todos los centros de un usuario")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "Centros eliminados exitosamente"),
+            @ApiResponse(responseCode = "200", description = "El usuario no tiene centros a eliminar")
+    })
+    public ResponseEntity<Void> deleteAllUserCenters(
+            @Parameter(description = "ID del usuario a eliminar centros", required = true) @PathVariable Long idUsuario) {
+
+        boolean removed = usersCenters.removeIf(u -> (u.getIdUsuario() == idUsuario));
+
+        if (removed) {
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.ok().build();
     }
 }
