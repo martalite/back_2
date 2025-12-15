@@ -116,6 +116,22 @@ public class UserCenterController {
     }
 
     /**
+     * POST - Crear un nuevo UsuarioCentro
+     * Ejemplo: POST http://localhost:8080/api/usersCenters/createAll
+     * Body: { "idUsuario": 1, "idCentro": 2}
+     */
+    @PostMapping("/createAll")
+    @Operation(summary = "Crear un nuevo usuario centro", description = "Crea un nuevo usuario centro en el sistema.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "201", description = "Usuario centro creado exitosamente"),
+            @ApiResponse(responseCode = "400", description = "Datos de usuario centro inválidos")
+    })
+    public ResponseEntity<ArrayList<UserCenter>> createUsersCenters(@RequestBody ArrayList<UserCenter> listUserCenter) {
+        usersCenters.addAll(listUserCenter);
+        return ResponseEntity.status(HttpStatus.CREATED).body(listUserCenter);
+    }
+
+    /**
      * PUT - Actualizar un centro existente
      * Ejemplo: PUT http://localhost:8080/api/usersCenters/1
      * Body: { "nombre": "Juan Pérez Actualizado", "email":
