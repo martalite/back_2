@@ -70,16 +70,32 @@ public class PatientController {
     @Operation(summary = "Buscar pacientes por nombre", description = "Busca pacientes cuyo nombre contenga el texto especificado (case-insensitive)")
     @ApiResponse(responseCode = "200", description = "Búsqueda realizada exitosamente")
     public ResponseEntity<List<Patient>> searchPatientsByName(
-            @Parameter(description = "Texto a buscar en el nombre del paciente") @RequestParam(required = false) String nombre) {
+            @Parameter(description = "Texto a buscar en el nombre del paciente") @RequestParam(required = false) String nombre,
+            @Parameter(description = "Texto a buscar en la descripción del paciente") @RequestParam(required = false) String descripcion,
+            @Parameter(description = "Código corto a buscar") @RequestParam(required = false) Integer numeroCorto) {
 
-        if (nombre == null || nombre.trim().isEmpty()) {
-            return ResponseEntity.ok(patients);
-        }
+        List<Patient> filteredPatients = patients;
 
-        List<Patient> filteredPatients = patients.stream()
+        // Solo aplicar filtros si existen
+        if (nombre != null && !nombre.trim().isEmpty()) {
+
+            filteredPatients = filteredPatients.stream()
                 .filter(u -> u.getNombre().toLowerCase().contains(nombre.toLowerCase()))
                 .toList();
+        }
 
+        if (descripcion != null) {
+            filteredPatients = filteredPatients.stream()
+                .filter(u -> u.getDescripcion().toLowerCase().contains(descripcion.toLowerCase()))
+                .toList();
+        }
+
+        if (numeroCorto != null) {
+            filteredPatients = filteredPatients.stream()
+                .filter(u -> u.getNumeroCorto() == numeroCorto)
+                .toList();
+        }
+       
         return ResponseEntity.ok(filteredPatients);
     }
 
