@@ -24,12 +24,12 @@ public class PatientController {
 
     public PatientController() {
 
-        patients.add(new Patient(nextId++, "Paciente 1", "Est reprehenderit incididunt ullamco mollit.", 32, 2342354, "Es normal, parece."));
-        patients.add(new Patient(nextId++, "Paciente 2", "Qui elit ullamco tempor ex aute incididunt.", 34, 14123, "Necessita toda una fábrica para cubrir su consumo."));
-        patients.add(new Patient(nextId++, "Paciente 3", "Velit dolore laboris amet id.", 12, 2313, "Se ha roto el pie como 3 veces."));
-        patients.add(new Patient(nextId++, "Paciente 4", "Velit dolore laboris amet id.", 13, 123123, "Sin observaciones."));
-        patients.add(new Patient(nextId++, "Paciente 5", "Velit dolore laboris amet id.", 54, 7654, "No tiene mucho dinero."));
-        patients.add(new Patient(nextId++, "Paciente 6", "Velit dolore laboris amet id.", 98, 6764543, "Tiene dinero."));
+        patients.add(new Patient(nextId++, "Paciente 1", "Est reprehenderit incididunt ullamco mollit.", 32, 2342354, "Es normal, parece.", ""));
+        patients.add(new Patient(nextId++, "Paciente 2", "Qui elit ullamco tempor ex aute incididunt.", 34, 14123, "Necessita toda una fábrica para cubrir su consumo.", ""));
+        patients.add(new Patient(nextId++, "Paciente 3", "Velit dolore laboris amet id.", 12, 2313, "Se ha roto el pie como 3 veces.", ""));
+        patients.add(new Patient(nextId++, "Paciente 4", "Velit dolore laboris amet id.", 13, 123123, "Sin observaciones.", ""));
+        patients.add(new Patient(nextId++, "Paciente 5", "Velit dolore laboris amet id.", 54, 7654, "No tiene mucho dinero.", ""));
+        patients.add(new Patient(nextId++, "Paciente 6", "Velit dolore laboris amet id.", 98, 6764543, "Tiene dinero.", ""));
     }
 
     

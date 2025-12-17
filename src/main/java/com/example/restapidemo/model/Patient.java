@@ -15,4 +15,5 @@ public class Patient {
     private int numeroCorto;
     private int numeroLargo;
     private String observaciones;
+    private String colorFichaMedica;
 }
