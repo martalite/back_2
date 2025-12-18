@@ -24,12 +24,18 @@ public class PatientController {
 
     public PatientController() {
 
-        patients.add(new Patient(nextId++, "Paciente 1", "Est reprehenderit incididunt ullamco mollit.", 32, 2342354, "Es normal, parece.", ""));
-        patients.add(new Patient(nextId++, "Paciente 2", "Qui elit ullamco tempor ex aute incididunt.", 34, 14123, "Necessita toda una fábrica para cubrir su consumo.", ""));
-        patients.add(new Patient(nextId++, "Paciente 3", "Velit dolore laboris amet id.", 12, 2313, "Se ha roto el pie como 3 veces.", ""));
-        patients.add(new Patient(nextId++, "Paciente 4", "Velit dolore laboris amet id.", 13, 123123, "Sin observaciones.", ""));
-        patients.add(new Patient(nextId++, "Paciente 5", "Velit dolore laboris amet id.", 54, 7654, "No tiene mucho dinero.", ""));
-        patients.add(new Patient(nextId++, "Paciente 6", "Velit dolore laboris amet id.", 98, 6764543, "Tiene dinero.", ""));
+        patients.add(new Patient(nextId++, "Paciente 1", "apellido1", "apellido2", "1/1/2000", "Hombre", "45678iugt6", 12121212, "a@a.a", "#8dff3cff", new String[] {"asdsa", "asdasd"}, new String[] {"Es normal, parece."}));
+        patients.add(new Patient(nextId++, "Paciente 2", "apellido1", "apellido2", "1/1/2000", "Hombre", "567kytrtht", 12121212, "b@b.b", "#8dff3cff", new String[] {"asdsa", "asdasd"}, new String[] {"Necessita toda una fábrica para cubrir su consumo."}));
+        patients.add(new Patient(nextId++, "Paciente 3", "apellido1", "apellido2", "1/1/2000", "Hombre", "uytyt43546u", 12121212, "c@c.c", "#8dff3cff", new String[] {"asdsa", "asdasd"}, new String[] {"Se ha roto el pie como 3 veces."}));
+        patients.add(new Patient(nextId++, "Paciente 4", "apellido1", "apellido2", "1/1/2000", "Hombre", "43653yrg423", 12121212, "d@d.d", "#8dff3cff", new String[] {"asdsa", "asdasd"}, new String[] {"Sin observaciones."}));
+
+
+        // patients.add(new Patient(nextId++, "Paciente 1", "Est reprehenderit incididunt ullamco mollit.", 32, 2342354, "Es normal, parece.", ""));
+        // patients.add(new Patient(nextId++, "Paciente 2", "Qui elit ullamco tempor ex aute incididunt.", 34, 14123, "Necessita toda una fábrica para cubrir su consumo.", ""));
+        // patients.add(new Patient(nextId++, "Paciente 3", "Velit dolore laboris amet id.", 12, 2313, "Se ha roto el pie como 3 veces.", ""));
+        // patients.add(new Patient(nextId++, "Paciente 4", "Velit dolore laboris amet id.", 13, 123123, "Sin observaciones.", ""));
+        // patients.add(new Patient(nextId++, "Paciente 5", "Velit dolore laboris amet id.", 54, 7654, "No tiene mucho dinero.", ""));
+        // patients.add(new Patient(nextId++, "Paciente 6", "Velit dolore laboris amet id.", 98, 6764543, "Tiene dinero.", ""));
     }
 
     
@@ -84,17 +90,17 @@ public class PatientController {
                 .toList();
         }
 
-        if (descripcion != null) {
-            filteredPatients = filteredPatients.stream()
-                .filter(u -> u.getDescripcion().toLowerCase().contains(descripcion.toLowerCase()))
-                .toList();
-        }
+        // if (descripcion != null) {
+        //     filteredPatients = filteredPatients.stream()
+        //         .filter(u -> u.getDescripcion().toLowerCase().contains(descripcion.toLowerCase()))
+        //         .toList();
+        // }
 
-        if (numeroCorto != null) {
-            filteredPatients = filteredPatients.stream()
-                .filter(u -> u.getNumeroCorto() == numeroCorto)
-                .toList();
-        }
+        // if (numeroCorto != null) {
+        //     filteredPatients = filteredPatients.stream()
+        //         .filter(u -> u.getNumeroCorto() == numeroCorto)
+        //         .toList();
+        // }
        
         return ResponseEntity.ok(filteredPatients);
     }
@@ -130,7 +136,7 @@ public class PatientController {
         if (existingPatient.isPresent()) {
             Patient Patient = existingPatient.get();
             Patient.setNombre(updatedPatient.getNombre());
-            Patient.setDescripcion(updatedPatient.getDescripcion());
+            // Patient.setDescripcion(updatedPatient.getDescripcion());
             return ResponseEntity.ok(Patient);
         }
 
